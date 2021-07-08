@@ -1,0 +1,35 @@
+    <div>
+
+        <div class="container">
+        <div class="row">
+            <div style="margin-top: 15%;" class="col-12 d-flex justify-content-center">
+            <mat-card style="width: 70%;">
+                <mat-card-header class="d-flex justify-content-center mr-5">
+                    <h1>Yapılacaklar Listesi</h1>
+                </mat-card-header>
+                <mat-card-content>
+                <div class="row">
+                    <div class="col-11">
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Yapılacak Ekleyin</mat-label>
+                            <input name="newTodoName" (keyup)="inputControl($event)" type="text" matInput placeholder="Yapılacak İsmi Girin">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-1 d-flex justify-content-end mt-1">
+                        <button (click)="newTodo()" mat-mini-fab>+</button>
+                    </div>
+                </div>
+                <div *ngFor="let todos of todos1" class="row mt-3">
+                    <section class="col-12">
+                        <mat-checkbox (click)="todoCheckUpdate(todos._id, todos.checked)" [checked]="todos.checked" class="col-10">{{ todos.name }}</mat-checkbox>
+                        <button (click)="deleteTodo(todos._id)" class="col-2 ml-4" mat-icon-button><mat-icon aria-hidden="false" aria-label="Sil">delete</mat-icon></button>
+                    </section>
+                </div>
+                </mat-card-content>
+            </mat-card>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    <router-outlet></router-outlet>
